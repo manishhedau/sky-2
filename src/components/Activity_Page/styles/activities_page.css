@@ -109,7 +109,7 @@
     .activity-list
     {
         width: 100%;
-        background-color: antiquewhite;
+        /* background-color: antiquewhite; */
         margin: 0;
     }
 }
