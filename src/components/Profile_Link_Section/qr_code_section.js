@@ -13,7 +13,7 @@ const QRCodeSection = ({ url }) => {
         <div id="qr-section">
             <i className="fas fa-times-circle" onClick={closeQRModal} id="close-button"></i>
             <p>Scan to view Profile</p>
-            <QRCode value={url} level="L" />
+            <QRCode size={window.innerWidth<=500 ? 150 : 260} value={url} level="L" />
         </div>
     );
 }

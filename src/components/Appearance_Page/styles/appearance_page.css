@@ -61,7 +61,7 @@ h5:hover
 {
     display: grid;
     grid-template-columns: repeat(4, 25%);
-    grid-template-rows: repeat(7,150px);
+    grid-template-rows: repeat(5,150px);
     justify-items: center;
     gap: 1rem 1rem;
     height: 50vh;
@@ -94,13 +94,16 @@ h5:hover
     border-radius: 10px;
 }
 
+
+/*Tablet View*/
+
 @media (min-width: 455px) and (max-width: 1080px)
 {
     .backgrounds-container
     {
         display: grid;
         grid-template-columns: repeat(3, 1fr);
-        grid-template-rows: repeat(auto-fill,1fr);
+        grid-template-rows: repeat(7,150px);
         height: 60vh;
         width: 80%;
         align-items: center;
@@ -109,8 +112,14 @@ h5:hover
         padding: 3%;
         overflow-y: scroll;
         scrollbar-width: none;
-        background-color: antiquewhite;
+        /* background-color: antiquewhite; */
         /* box-shadow: 0 0 10px 2px black; */
+    }
+
+    .fonts-container
+    {
+        grid-template-columns: repeat(3, 1fr);
+        grid-template-rows: repeat(3, 150px);
     }
 }
 
@@ -145,7 +154,7 @@ h5:hover
     {
         display: grid;
         grid-template-columns: repeat(3, 1fr);
-        grid-template-rows: repeat(auto-fill,1fr);
+        grid-template-rows: repeat(7,150px);
         height: 100%;
         width: 80%;
         align-items: center;
@@ -154,7 +163,7 @@ h5:hover
         padding: 3%;
         overflow-y: scroll;
         scrollbar-width: none;
-        background-color: antiquewhite;
+        /* background-color: antiquewhite; */
         /* box-shadow: 0 0 10px 2px black; */
     }
 
@@ -176,15 +185,15 @@ h5:hover
     .fonts-container
     {
         height: 100%;
-        display: grid;
-        justify-content: center;
-        background-color: antiquewhite;
-        align-content: center;
+        /* display: grid;
+        justify-content: center; */
+        /* background-color: antiquewhite; */
+        /* align-content: center; */
         grid-template-columns: repeat(3, 1fr);
         gap: 1rem 1rem;
-        grid-template-rows: repeat(auto-fill,1fr);
+        grid-template-rows: repeat(3,150px);
         overflow-y: scroll;
-        width: 100%;
+        width: 80%;
         padding: 3%;
         border: none;
         border-radius: 10px;

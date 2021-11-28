@@ -4,12 +4,22 @@ import {useState} from 'react';
 
 const InterestTile = (props) => {
 
-    const {interest,color} = props;
+    const {interest, color, addToList, removeFromList} = props;
 
     const [selected, setSelected] = useState(false);
     
-    const toggleSelection = () => {
+    const toggleSelection = (e) => {
         setSelected(!selected);
+
+        if(!selected)
+        {
+            addToList(e);
+        }
+
+        else
+        {
+            removeFromList(e);
+        }
     }
 
     return (

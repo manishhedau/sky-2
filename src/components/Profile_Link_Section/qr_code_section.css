@@ -39,8 +39,10 @@
     color: rgba(0,0,0,0.9)
 }
 
-#qr-section svg[style]
+@media screen and (max-width: 500px)
 {
-    height: auto !important;
-    width: auto !important;
+    #qr-section
+    {
+        height: 45vh;
+    }
 }

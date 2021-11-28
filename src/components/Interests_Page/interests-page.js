@@ -3,49 +3,58 @@ import colors from '../Analytics_Page/datasets/colors.json';
 import './interests-page.css';
 import InterestTile from './interest-tile';
 import { useHistory } from 'react-router-dom';
+import { useState } from 'react';
 
 // console.log(interestsInfo);
 console.log(colors);
 
-const getRandomColor = () => {
-    const colorIndex = Math.floor(Math.random() * 256);
-
-    return colorIndex;
-}
+// const getRandomColor = () => {
+//     const colorIndex = Math.floor(Math.random() * 256);
+//     return colorIndex;
+// }
 
 const InterestsPage = () => {
     const history = useHistory();
+    const [selectedList, setSelectedList] = useState([]);
 
     const handleClick = () => {
-        history.push("/user-profession");
+        if (selectedList.length >= 5) {
+            history.push("/user-profession");
+        }
+    }
+
+    const addToList = (e) => {
+        console.log(selectedList);
+        setSelectedList(list => [...list, e.target.innerText]);
+    }
+
+    const removeFromList = (e) => {
+        console.log(selectedList);
+        setSelectedList(list => {
+            return list.filter(item => item !== e.target.innerText);
+        });
     }
 
     return (
         <div id="interests-page">
 
             <div id="interest-description">
-                <p>Choose interests that you'd like to share. Choose a minimum of 5</p>
-                <p>Passions (0/5)</p>
+                <p style={{ fontSize: "1.1rem" }}>Choose interests that you'd like to share. Choose a minimum of 5</p>
+                <p style={{ fontSize: "1.1rem" }}>{`Passions (${selectedList.length}/5)`}</p>
             </div>
 
             <div id="interests-container">
                 {interestsInfo.interests.map((interest, index) => {
 
-                    const color = colors[getRandomColor()].hexString;
+                    const color = colors[index + 120].hexString;
 
                     return (
-
-                        // <div key={index} className="interests-tile" style={{color: color, border: `1px solid ${color}`}}>
-                        //     <h6>{interest}</h6>
-                        // </div>
-
-                        <InterestTile interest={interest} color={color} />
-
+                        <InterestTile removeFromList={removeFromList} addToList={addToList} interest={interest} color={color} />
                     );
                 })}
             </div>
 
-            <button className="btn btn-dark" onClick={handleClick}>Save</button>
+            <button className="btn btn-dark" onClick={handleClick} disabled={selectedList.length < 5 ? true : false}>Save</button>
 
         </div>
     );

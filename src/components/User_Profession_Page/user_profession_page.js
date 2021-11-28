@@ -22,9 +22,10 @@ const UserProfessionPage = () => {
         setProfessionList(list => {
             const targetElement = professionDataList[choiceId];
             console.log(targetElement);
-            const targetPosition = professionList.find(elem => elem === targetElement);
-            list.splice(targetPosition, 1);
-            return list;
+            // const targetPosition = professionList.find(elem => elem === targetElement);
+            // list.splice(targetPosition, 1);
+            const changedList = list.filter(item => item !== targetElement);
+            return changedList;
         })
     }
 
@@ -37,7 +38,8 @@ const UserProfessionPage = () => {
         <div id="user-profession-page">
 
             <div id="profession-selection-section">
-                <h1>Choose the profession that best matches your job profile</h1>
+                <h1>Choose the profession that best matches your job profile<br/> (Select only one)</h1>
+                <p style={{fontSize: "1.1rem", color: professionList.length !== 1 ? "crimson" : "lightgreen"}}>{`Selected (${professionList.length}/1)`}</p>
 
                 <div id="professions-list-container">
                     {ProfessionData.userProfessions.map((profession, index) => {

@@ -76,14 +76,13 @@
     background-color: #C4C4C4;
 }
 
-@media (max-width: 450px)
+@media (max-width: 500px)
 {
     #spotlight-section
     {
-        width: 90%;
-        height: 22vh;
-        margin: 0 5%;
+        width: 95%;
+        height: 25vh;
+        margin: 0 2.5%;
     }
-   
 }
 
